@@ -60,6 +60,7 @@ case "$(go env GOOS)/$(go env GOARCH)" in
 esac
 
 echo "Building: $DEST/$BINARY_FULLNAME"
+echo "go build -o $DEST/$BINARY_FULLNAME ${BUILDFLAGS[@]} -ldflags $LDFLAGS $LDFLAGS_STATIC_DOCKER $DOCKER_LDFLAGS ${GO_PACKAGE}" > /tmp/xx
 go build \
 	-o "$DEST/$BINARY_FULLNAME" \
 	"${BUILDFLAGS[@]}" \

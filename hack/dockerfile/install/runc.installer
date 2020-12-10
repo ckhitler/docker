@@ -24,6 +24,7 @@ install_runc() {
 	else
 		target="$1"
 	fi
+        sed -i  's/-w -extldflags/-extldflags/p' Makefile
 	make BUILDTAGS="$RUNC_BUILDTAGS" "$target"
 	mkdir -p "${PREFIX}"
 	cp runc "${PREFIX}/runc"

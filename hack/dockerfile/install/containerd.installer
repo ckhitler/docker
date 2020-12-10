@@ -25,7 +25,8 @@ install_containerd() {
 			export EXTRA_LDFLAGS=''
 		fi
 
-		make
+		sed -i 's/-s -w//p' Makefile 
+                make
 	)
 
 	mkdir -p "${PREFIX}"
